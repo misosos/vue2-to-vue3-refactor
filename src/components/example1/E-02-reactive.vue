@@ -1,9 +1,9 @@
 <template>
-  <div>{{ fullName() }}</div>
+  <div>{{ fullName}}</div>
 </template>
 
 <script>
-import {onMounted, ref} from "vue";
+import {onMounted, ref,computed} from "vue";
 
 export default {
   name: "E02Reactive",
@@ -12,9 +12,9 @@ export default {
     const firstName = ref("Kyungsu");
     const lastName = ref("Lee");
 
-    const fullName = () => {
+    const fullName = (computed(()=>{
       return firstName.value + " " + lastName.value;
-    }
+    }))
 
     onMounted(() => {
       setTimeout(() => {
