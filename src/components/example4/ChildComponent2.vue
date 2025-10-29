@@ -6,8 +6,18 @@
 </template>
 
 <script>
+import {inject} from "vue";
+
 export default {
-  inject: ['sharedMessage']
+
+  setup() {
+    const sharedMessage = inject("sharedMessage");
+
+    return{
+      sharedMessage,
+    };
+  }
+
 };
 </script>
 

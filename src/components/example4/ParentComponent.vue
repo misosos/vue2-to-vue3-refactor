@@ -8,16 +8,16 @@
 <script>
 
 import ChildComponent1 from "@/components/example4/ChildComponent1.vue";
-
+import {provide} from "vue";
+import {ref} from "vue";
 export default {
   name: "E06ParentComponent",
-  provide() {
-    return {
-      sharedMessage: 'Hello from provide'
-    };
-  },
-  components: {
-    ChildComponent1
+  components: {ChildComponent1},
+  setup(){
+    const sharedMessage = ref("Hello from provide");
+
+    provide('sharedMessage', sharedMessage);
+
   }
 };
 </script>

@@ -13,10 +13,18 @@
 
 <script>
 import ChildComponent2 from "@/components/example4/ChildComponent2.vue";
+import {inject, provide} from "vue";
 
 export default {
   components: {ChildComponent2},
-  inject: ['sharedMessage']
+
+  setup() {
+    const sharedMessage = inject("sharedMessage");
+
+    return{
+      sharedMessage,
+    };
+  }
 };
 </script>
 
