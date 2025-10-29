@@ -52,18 +52,24 @@
 </template>
 
 <script>
+import {ref} from "vue";
 export default {
   name: "E04Directives",
-  data() {
-    return {
-      isVisible: true,
-      items: [
-        { id: 1, name: "Item 1" },
-        { id: 2, name: "Item 2" },
-        { id: 3, name: "Item 3" },
-        { id: 4, name: "Item 4" },
-      ],
-      count: 0,
+
+  setup(){
+    const count = ref(0);
+    const isVisible = ref(true);
+    const items = ref( [
+      { id: 1, name: "Item 1" },
+      { id: 2, name: "Item 2" },
+      { id: 3, name: "Item 3" },
+      { id: 4, name: "Item 4" },
+    ])
+
+    return{
+      count,
+      isVisible,
+      items,
     };
   }
 };
