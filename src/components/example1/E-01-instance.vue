@@ -3,11 +3,13 @@
 </template>
 
 <script>
+import {ref} from "vue";
 export default {
   name: "E01Instance",
-  data() {
-    return {
-      message: "Vue!"
+  setup() {
+    const message = ref("Vue!");
+    return{
+      message,
     };
   }
 };
