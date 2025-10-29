@@ -2,12 +2,23 @@
 <template>
   <div>
     <p>{{ message }}</p>
-    <button @click="$emit('custom-event', 'Hello from child')">Send Event</button>
+    <button @click="customEvent">Send Event</button>
   </div>
 </template>
 
 <script>
+
 export default {
-  props: ['message']
+  props: ['message'],
+  emits: ['custom-event'],
+
+  setup(props, { emit }) {
+    const customEvent = () => {
+      emit('custom-event', 'Hello from child');
+    };
+    return {
+      customEvent,
+    }
+  }
 };
 </script>
